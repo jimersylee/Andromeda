@@ -6,7 +6,7 @@
  * Time: 14:37
  */
 
-namespace Framework\Di;
+namespace Framework\Di\FactoryDefault;
 use Framework\Di;
 
 

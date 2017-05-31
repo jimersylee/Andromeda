@@ -6,14 +6,18 @@
  * Time: 14:24
  */
 
-use Framework\Di\FactoryDefault;
+use Framework\Di\FactoryDefault\FactoryDefault;
 
-define('BASE_PATH',dirname(__DIR__."/php-DI"));
+define('BASE_PATH',__DIR__);
 //echo BASE_PATH;
+
 define('APP_PATH',BASE_PATH.'/App');
+//echo APP_PATH;
 
-
+include BASE_PATH."/Framework/DiInterface.php";
+include BASE_PATH."/Framework/Di.php";
 include BASE_PATH."/Framework/Di/FactoryDefault.php";
+
 
 //容器
 $di=new FactoryDefault();
