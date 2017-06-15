@@ -27,6 +27,17 @@ class FactoryDefault extends Di
     }
 
 
+    /**
+     * 获取服务实例
+     * @param $name
+     * @return mixed
+     */
+    public function get($name){
+        return $this->_sharedInstances[$name];
+    }
+
+
+
     public function __construct()
     {
     }

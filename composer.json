@@ -1,0 +1,12 @@
+{
+  "name":"php-di-ioc",
+  "description":"PHP framework",
+  "type":"Framework",
+  "keywords":[
+    "PHP","Framework","PHP Framework"
+  ],
+  "require":{
+    "php":">=5.3.0",
+    "filp/whoops":"*"
+  }
+}
