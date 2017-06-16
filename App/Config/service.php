@@ -9,7 +9,9 @@
 //服务配置
 use Framework\Mvc\Writer;
 
-$di->setShared("write",function(){
-        $write=new Writer();
+
+$di->setShared("writer",function() use ($di){
+        $write=new Writer($di);
+        $write->setDI($di);
         return $write;
 });

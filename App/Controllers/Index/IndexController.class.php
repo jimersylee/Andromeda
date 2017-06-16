@@ -12,9 +12,11 @@
  * Class IndexController
  *
  */
-class IndexController extends ControllerBase
+use Framework\Mvc\Controller;
+class IndexController extends Controller
 {
     public function index(){
-
+        $this->writer->hello();
     }
+
 }

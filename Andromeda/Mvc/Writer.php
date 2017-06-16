@@ -11,7 +11,6 @@ namespace Framework\Mvc;
 
 use Framework\App;
 use Framework\DiInterface;
-use Framework\Di\Injectable;
 
 class Writer extends App
 {
@@ -19,7 +18,11 @@ class Writer extends App
         echo __METHOD__;
     }
 
-    public function setDI(DiInterface $dependenceInjector)
+    public function hello(){
+        echo "hello";
+    }
+
+    public function setDI($di)
     {
         // TODO: Implement setDI() method.
     }

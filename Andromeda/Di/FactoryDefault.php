@@ -33,12 +33,26 @@ class FactoryDefault extends Di
      * @return mixed
      */
     public function get($name){
-        return $this->_sharedInstances[$name];
+
+        $instance=null;
+        if (isset($this->_sharedInstances[$name])) {
+            $definition = $this->_sharedInstances[$name];
+        } else {
+            throw new \Exception("Service '" . name . "' wasn't found in the dependency injection container");
+        }
+
+        if (is_object($definition)) {
+            $instance = call_user_func($definition);
+        }
+
+        return $instance;
+
     }
 
 
 
     public function __construct()
     {
+        return $this;
     }
 }
