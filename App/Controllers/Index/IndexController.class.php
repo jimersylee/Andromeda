@@ -12,16 +12,11 @@
  * Class IndexController
  *
  */
-class IndexController extends ControllerBase
+use Framework\Mvc\Controller;
+class IndexController extends Controller
 {
     public function index(){
-        $this->writer->write();
         $this->writer->hello();
-
     }
 
-    public function __construct($di)
-    {
-        $this->_dependencyInjector=$di;
-    }
 }

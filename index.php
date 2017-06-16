@@ -8,52 +8,80 @@
 
 use Framework\Di\FactoryDefault\FactoryDefault;
 
-define('BASE_PATH', __DIR__);
 
-//echo BASE_PATH;
-
-define('APP_PATH', BASE_PATH . '/App');
-//echo APP_PATH;
-
-include BASE_PATH . "/Framework/DiInterface.php";
-include BASE_PATH . "/Framework/Di.php";
-include BASE_PATH . "/Framework/Di/FactoryDefault.php";
-include BASE_PATH . "/Framework/Di/Injectable.php";
-include BASE_PATH . "/Framework/App.php";
-
-include "vendor/autoload.php";
+include "./vendor/autoload.php";
 $whoops = new \Whoops\Run();
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
 $whoops->register();
+
+
+
+
+
+
+
+//define("DS",DIRECTORY_SEPARATOR);//分隔符 window与linux不同
+define("DS",DIRECTORY_SEPARATOR);//分隔符 window与linux不同
+
+define('ROOT', __DIR__);
+
+//echo BASE_PATH;
+
+define('APP_PATH', ROOT . '\App\\');
+//echo APP_PATH;
+
+
+include ROOT . "/Andromeda/DiInterface.php";
+include ROOT . "/Andromeda/Di.php";
+include ROOT . "/Andromeda/Di/FactoryDefault.php";
+include ROOT . "/Andromeda/Di/InjectionAwareInterface.php";
+include ROOT . "/Andromeda/Di/Injectable.php";
+
+include ROOT . "/Andromeda/App.php";
+include ROOT . "/Andromeda/Andromeda.php";
 
 
 //容器
 $di = new FactoryDefault();
 
 
+
+
+require_once "Andromeda/Andromeda.php";
+include ROOT ."/Andromeda/Mvc/Controller.php";
+
+
 //载入路由配置 handle routes
 
-include APP_PATH . "/Config/router.php";
+include APP_PATH . "Config/router.php";
 
 //载入服务配置 read service
-include APP_PATH . "/Config/service.php";
+include APP_PATH . "Config/service.php";
 
 //载入自动加载配置
-include APP_PATH . "/Config/loader.php";
+include APP_PATH . "Config/loader.php";
 
 //应用(组件)
 $app = new \Framework\App($di);
+
+Andromeda::run($di);
+
+
+
+
+
 
 /*$writer = $di->get("writer");
 $writer->write();
 $writer->hello();
 exit;*/
 
-include "Framework/Mvc/Controller.php";
-include "App/Controllers/ControllerBase.php";
-include "App/Controllers/IndexController.php";
+/*include "Andromeda/Mvc/Controller.php";
+include "App/Controllers/Index/ControllerBase.php";
+include "App/Controllers/Index/IndexController.php";
 $c = new IndexController($di);
-$c->index();
+$c->index();*/
+
 
 
 

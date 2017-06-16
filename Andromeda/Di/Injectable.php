@@ -9,14 +9,12 @@
 namespace Framework\Di;
 
 
-use Framework\DiInterface;
-
 
 /**
  * Class Injectable
  * @property \Framework\Mvc\Writer $writer
  */
-abstract class Injectable
+abstract class Injectable implements InjectionAwareInterface
 {
 
     protected $_dependencyInjector;
@@ -27,7 +25,7 @@ abstract class Injectable
 
 
 
-    public function setDI(DiInterface $dependenceInjector)
+    public function setDI( $dependenceInjector)
     {
         $this->_dependencyInjector=$dependenceInjector;
     }

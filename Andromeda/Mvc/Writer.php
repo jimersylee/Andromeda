@@ -22,7 +22,7 @@ class Writer extends App
         echo "hello";
     }
 
-    public function setDI(DiInterface $dependenceInjector)
+    public function setDI($di)
     {
         // TODO: Implement setDI() method.
     }
