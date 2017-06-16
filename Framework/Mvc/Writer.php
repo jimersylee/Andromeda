@@ -11,12 +11,15 @@ namespace Framework\Mvc;
 
 use Framework\App;
 use Framework\DiInterface;
-use Framework\Di\Injectable;
 
 class Writer extends App
 {
     public function write(){
         echo __METHOD__;
+    }
+
+    public function hello(){
+        echo "hello";
     }
 
     public function setDI(DiInterface $dependenceInjector)

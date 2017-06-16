@@ -15,6 +15,13 @@
 class IndexController extends ControllerBase
 {
     public function index(){
+        $this->writer->write();
+        $this->writer->hello();
 
+    }
+
+    public function __construct($di)
+    {
+        $this->_dependencyInjector=$di;
     }
 }

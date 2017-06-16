@@ -21,6 +21,10 @@ abstract class Injectable
 
     protected $_dependencyInjector;
 
+    protected $_eventsManager;
+
+
+
 
 
     public function setDI(DiInterface $dependenceInjector)
@@ -32,6 +36,17 @@ abstract class Injectable
     {
         return $this->_dependencyInjector;
     }
+
+
+    public function setEventsManager($eventsManager){
+        $this->_eventsManager=$eventsManager;
+    }
+
+    public function getEventsManager(){
+        return $this->_eventsManager;
+    }
+
+
 
 
 
