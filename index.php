@@ -71,20 +71,6 @@ Andromeda::run($di);
 
 
 
-/*$writer = $di->get("writer");
-$writer->write();
-$writer->hello();
-exit;*/
-
-/*include "Andromeda/Mvc/Controller.php";
-include "App/Controllers/Index/ControllerBase.php";
-include "App/Controllers/Index/IndexController.php";
-$c = new IndexController($di);
-$c->index();*/
-
-
-
-
 
 
 

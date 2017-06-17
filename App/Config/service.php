@@ -16,3 +16,9 @@ $di->setShared("writer",function() use ($di,$config){
         $write->setDI($di);
         return $write;
 });
+
+
+/*$di->set("writer",function () use ($di){
+
+    return null;
+});*/

@@ -8,7 +8,11 @@
 
 namespace Framework;
 
-
+/**
+ * 依赖注入实现核心类
+ * Class Di
+ * @package Framework
+ */
 class Di implements DiInterface
 {
     /**

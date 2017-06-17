@@ -30,7 +30,7 @@ class FactoryDefault extends Di
 
 
     /**
-     * 获取服务实例
+     * 获取共享服务实例
      * @param $name :服务名
      * @param $param_arr :配置
      * @return mixed
@@ -40,10 +40,22 @@ class FactoryDefault extends Di
     {
 
         $instance = null;
+
         if (isset($this->_sharedInstances[$name])) {
             $definition = $this->_sharedInstances[$name];
         } else {
-            throw new \Exception("Service '" . $name . "' wasn't found in the dependency injection container");
+            //去独立服务里面去找
+            if(isset($this->_services['name'])){
+                //找到,new一个新的实例
+                $instance=new $name;
+                return $instance;
+            }else{
+                //没找到
+                throw new \Exception("Service '" . $name . "' wasn't found in the dependency injection container");
+            }
+
+
+
         }
 
         if (!is_object($definition)) {
@@ -59,6 +71,16 @@ class FactoryDefault extends Di
 
     }
 
+    /*
+     * 设置独立服务,每次获取的时候会实例化
+     * @param $name
+     * @param $definition
+     */
+    public function set($name, $definition)
+    {
+        $this->_sharedInstances[$name] = $definition;
+        $this->_services[$name]=$definition;
+    }
 
     public function __construct()
     {

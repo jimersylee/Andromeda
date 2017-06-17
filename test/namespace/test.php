@@ -7,7 +7,9 @@
  */
 
 
-
+/*
+ * 关于namespace的使用
+ * */
 include "./NameSpaceClass.php";
 include "./UseNameSpace.php";
 
