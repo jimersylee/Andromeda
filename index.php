@@ -23,12 +23,12 @@ $whoops->register();
 //define("DS",DIRECTORY_SEPARATOR);//分隔符 window与linux不同
 define("DS",DIRECTORY_SEPARATOR);//分隔符 window与linux不同
 
-define('ROOT', __DIR__);
+define('ROOT', __DIR__.DS);
 
 //echo BASE_PATH;
 
-define('APP_PATH', ROOT . '\App\\');
-//echo APP_PATH;
+define('APP_PATH', ROOT . 'App'.DS);
+echo APP_PATH;
 
 
 include ROOT . "/Andromeda/DiInterface.php";
