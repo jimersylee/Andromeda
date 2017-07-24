@@ -37,7 +37,7 @@ abstract class Controller extends Injectable
 
     public function __construct($di=null)
     {
-        $this->loader=new \Loader();
+        //$this->loader=new \Loader();
         $this->view=new \View();
         $this->_dependencyInjector=$di;
     }

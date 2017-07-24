@@ -15,11 +15,11 @@ use Framework\DiInterface;
 class Writer extends App
 {
     public function write(){
-        echo __METHOD__;
+        echo "write sth";
     }
 
     public function hello(){
-        echo "hello";
+        echo "hello guys";
     }
 
     public function setDI($di)

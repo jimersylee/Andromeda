@@ -18,9 +18,11 @@ class Andromeda extends \Framework\Di\Injectable {
     public static $s_arr_query;
 
     public static function run($di=null){
+        self::error();
         self::init();
         self::autoload();
         self::dispatch($di);
+
     }
 
 
@@ -31,9 +33,6 @@ class Andromeda extends \Framework\Di\Injectable {
     private static function init(){
         //Define path constants
 
-
-        //define("ROOT", getcwd() . DS);
-        //define("APP_PATH", ROOT . 'application' . DS);
         define("FRAMEWORK_PATH", ROOT . DS."Andromeda" . DS);
         define("PUBLIC_PATH", ROOT . "public" . DS);
         define("CONFIG_PATH", APP_PATH . "config" . DS);
@@ -120,6 +119,7 @@ class Andromeda extends \Framework\Di\Injectable {
 
     /**
      * 设置路由与调度器
+     * @param $di:注入器
      * Routing and dispatching
      */
     private static function dispatch($di){
@@ -128,8 +128,7 @@ class Andromeda extends \Framework\Di\Injectable {
         $action_name=ACTION;
         $controller=new $controller_name;
         $controller->setDI($di);
-        /*$con='new $controller_name($di);';
-        $controller=eval($con);*/
+
 
 
         $num=count(self::$s_arr_query);
@@ -158,22 +157,42 @@ class Andromeda extends \Framework\Di\Injectable {
     /**
      * 设置错误与异常处理
      */
-    private static function Error(){
+    private static function error(){
         error_reporting(E_ALL);
         set_error_handler([__CLASS__, 'appError']);
         set_exception_handler([__CLASS__, 'appException']);
         register_shutdown_function([__CLASS__, 'appShutdown']);
     }
 
-    private static function appError(){
-
+    public static function appError(){
+        echo '-------error--------';
+        $errorArr=error_get_last();
+        echo $errorArr['type']."<br>";
+        echo $errorArr['message']."<br>";
     }
 
-    private static function appException(){
+    /**
+     * 设置异常处理
+     * @param Throwable $exception
+     */
+    public static function appException($exception){
+        echo '<br>';
+        echo "----------exception--------<br>";
+        //todo 判断是不是人为抛出的异常,如果是则正常抛,否则都归为系统异常,不向用户暴露错误原因,开启debug模式可以出异常
 
+
+        echo "code=".$exception->getCode()."<br>";
+        echo "message=".$exception->getMessage()."<br>";
+        echo "file=".$exception->getFile()."<br>";
+        echo "line=".$exception->getLine(),"<br>";
+        echo "trace=".$exception->getTraceAsString()."<br>";
     }
-    private static function appShutdown(){
 
+    /**
+     * php脚本无论正常执行完毕或者异常结束都会调用
+     */
+    public static function appShutdown(){
+        //echo '****shutdown****';
     }
 
 }

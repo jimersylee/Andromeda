@@ -9,10 +9,10 @@
 use Framework\Di\FactoryDefault\FactoryDefault;
 
 
-include "./vendor/autoload.php";
+/*include "./vendor/autoload.php";
 $whoops = new \Whoops\Run();
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
-$whoops->register();
+$whoops->register();*/
 
 
 
@@ -28,7 +28,7 @@ define('ROOT', __DIR__.DS);
 //echo BASE_PATH;
 
 define('APP_PATH', ROOT . 'App'.DS);
-echo APP_PATH;
+//echo APP_PATH;
 
 
 include ROOT . "/Andromeda/DiInterface.php";
