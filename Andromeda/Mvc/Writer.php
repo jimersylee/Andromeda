@@ -10,12 +10,16 @@ namespace Framework\Mvc;
 
 
 use Framework\App;
-use Framework\DiInterface;
+
 
 class Writer extends App
 {
-    public function write(){
-        echo "write sth";
+    /**
+     * 在浏览器输出一些内容
+     * @param $content
+     */
+    public function write($content){
+        echo "write $content";
     }
 
     public function hello(){

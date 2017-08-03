@@ -29,4 +29,8 @@ class IndexController extends Controller
 
     }
 
+    public function write(){
+        $this->writer->write("");
+    }
+
 }
