@@ -9,10 +9,10 @@
 use Framework\Di\FactoryDefault\FactoryDefault;
 
 
-/*include "./vendor/autoload.php";
+include "./vendor/autoload.php";
 $whoops = new \Whoops\Run();
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
-$whoops->register();*/
+$whoops->register();
 
 
 
@@ -20,14 +20,14 @@ $whoops->register();*/
 
 
 
-//define("DS",DIRECTORY_SEPARATOR);//分隔符 window与linux不同
-define("DS",DIRECTORY_SEPARATOR);//分隔符 window与linux不同
+//分隔符 window与linux不同
+define("DS",DIRECTORY_SEPARATOR);
 
 define('ROOT', __DIR__.DS);
 
 //echo BASE_PATH;
 
-define('APP_PATH', ROOT . 'App'.DS);
+define('APP_PATH', ROOT . 'App'.DS);//定义app目录
 //echo APP_PATH;
 
 

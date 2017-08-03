@@ -35,7 +35,7 @@ class Log
      */
     public static function ERR($message){
         $str ="[". date("Y-m-d H:i:s") ."]" .Log::ERROR.":$message". PHP_EOL;
-        file_put_contents("log.txt", $str,FILE_APPEND);
+        file_put_contents(APP_PATH."Log/log.txt", $str,FILE_APPEND);
     }
 
     /**
@@ -46,7 +46,7 @@ class Log
             //
         }else{
             $str ="[". date("Y-m-d H:i:s") ."]" .$type.":$message". PHP_EOL;
-            file_put_contents("log.txt", $str,FILE_APPEND);
+            file_put_contents(APP_PATH."Log/log.txt", $str,FILE_APPEND);
         }
 
     }

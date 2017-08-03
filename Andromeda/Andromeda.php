@@ -18,7 +18,7 @@ class Andromeda extends \Framework\Di\Injectable {
     public static $s_arr_query;
 
     public static function run($di=null){
-        self::error();
+        //self::error();
         self::init();
         self::autoload();
         self::dispatch($di);
@@ -34,11 +34,11 @@ class Andromeda extends \Framework\Di\Injectable {
         //Define path constants
 
         define("FRAMEWORK_PATH", ROOT . DS."Andromeda" . DS);
-        define("PUBLIC_PATH", ROOT . "public" . DS);
-        define("CONFIG_PATH", APP_PATH . "config" . DS);
+        define("PUBLIC_PATH", ROOT . "Public" . DS);
+        define("CONFIG_PATH", APP_PATH . "Config" . DS);
         define("CONTROLLER_PATH", APP_PATH . "Controllers" . DS);
-        define("MODEL_PATH", APP_PATH . "models" . DS);
-        define("VIEW_PATH", APP_PATH . "views" . DS);
+        define("MODEL_PATH", APP_PATH . "Models" . DS);
+        define("VIEW_PATH", APP_PATH . "Views" . DS);
         define("CORE_PATH", FRAMEWORK_PATH . "core" . DS);
         define('DB_PATH', FRAMEWORK_PATH . "database" . DS);
         define("LIB_PATH", FRAMEWORK_PATH . "libraries" . DS);
@@ -68,8 +68,12 @@ class Andromeda extends \Framework\Di\Injectable {
         $arr=parse_url($url);
         //echo $url;
 
-        self::$s_arr_query=Util::convertUrlQuery($arr['query']);
-        //var_dump($GLOBALS['arr_query']);
+        if(!isset($arr['query'])){
+            //默认访问home模块的Index控制器的index方法
+            self::$s_arr_query=['home','index','index'];
+        }else{
+            self::$s_arr_query=Util::convertUrlQuery($arr['query']);
+        }
 
 
 
@@ -81,7 +85,7 @@ class Andromeda extends \Framework\Di\Injectable {
 
         //load configuration file
 
-        //$GLOBALS['config']=include CONFIG_PATH."config.php";
+        $GLOBALS['config']=include CONFIG_PATH."config.php";
 
         //start session
 
@@ -110,7 +114,7 @@ class Andromeda extends \Framework\Di\Injectable {
 
         }elseif(substr($className,-5)=="Model"){
             //it is model
-            require MODEL_PATH."$className.php";
+            require MODEL_PATH."$className.class.php";
 
 
         }
