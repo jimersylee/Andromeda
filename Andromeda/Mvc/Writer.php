@@ -14,6 +14,13 @@ use Framework\App;
 
 class Writer extends App
 {
+
+    public function __construct($di)
+    {
+        parent::__construct($di);
+        echo "new Writer<br>";
+    }
+
     /**
      * 在浏览器输出一些内容
      * @param $content

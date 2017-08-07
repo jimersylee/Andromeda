@@ -13,6 +13,7 @@ namespace Framework\Di;
 /**
  * Class Injectable
  * @property \Framework\Mvc\Writer $writer
+ * @property \Andromeda\Logger\Logger $logger
  */
 abstract class Injectable implements InjectionAwareInterface
 {

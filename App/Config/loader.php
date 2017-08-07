@@ -8,10 +8,10 @@
 
 
 
-
+//自动载入php文件
 
 include ROOT . "/Andromeda/Mvc/Writer.php";
-
+include ROOT."Andromeda/logger/Logger.class.php";
 /*
 $loader=new Loader();
 $loader->registerDirs(

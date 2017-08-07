@@ -8,6 +8,7 @@
 
 //服务配置
 use Framework\Mvc\Writer;
+use Andromeda\Logger\Logger;
 
 $config=[];
 //闭包 use支持多多个参数,可以利用此特性传递多个参数
@@ -16,6 +17,29 @@ $di->setShared("writer",function() use ($di,$config){
         $write->setDI($di);
         return $write;
 });
+
+
+
+$di->setShared("logger",function () use ($di){
+    $logger=Logger::getInstance();
+    //$logger->setDI($di);
+    return $logger;
+});
+
+$di->set("loggerDyn",function() use ($di){
+    $loggerDyn=new Logger($di);
+    return $loggerDyn;
+});
+
+
+
+
+
+
+
+
+
+
 
 
 /*$di->set("writer",function () use ($di){
