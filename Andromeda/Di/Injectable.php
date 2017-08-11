@@ -14,6 +14,7 @@ namespace Framework\Di;
  * Class Injectable
  * @property \Framework\Mvc\Writer $writer
  * @property \Andromeda\Logger\Logger $logger
+ * @property \Framework\Mvc\SingletonWriter $singletonWriter
  */
 abstract class Injectable implements InjectionAwareInterface
 {

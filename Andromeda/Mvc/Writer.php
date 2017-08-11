@@ -26,11 +26,11 @@ class Writer extends App
      * @param $content
      */
     public function write($content){
-        echo "write $content";
+        echo "write $content<br>";
     }
 
     public function hello(){
-        echo "hello guys";
+        echo "hello guys<br>";
     }
 
     public function setDI($di)

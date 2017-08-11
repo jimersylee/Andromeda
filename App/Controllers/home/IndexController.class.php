@@ -23,9 +23,11 @@ class IndexController extends Controller
         $this->writer->hello();
         $this->writer->hello();
         $this->logger->err("a");
-        /*$this->logger->err("b");
-        $this->logger->err("c");*/
-        //\Andromeda\Logger\Logger::ERR("www");
+        $this->singletonWriter->hello();
+        $this->singletonWriter->hello();
+        $this->singletonWriter->hello();
+        $this->singletonWriter::staticHello();
+
 
     }
 
