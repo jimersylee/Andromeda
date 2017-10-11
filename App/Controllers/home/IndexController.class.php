@@ -22,7 +22,7 @@ class IndexController extends Controller
         $this->writer->hello();
         $this->writer->hello();
         $this->writer->hello();
-        $this->logger->err("a");
+        Log::write("hehehehe");
         $this->singletonWriter->hello();
         $this->singletonWriter->hello();
         $this->singletonWriter->hello();
@@ -39,6 +39,12 @@ class IndexController extends Controller
         $this->assign('page', 'home/getuser');
         $this->assign('result', $result);
         $this->display('getUser');
+
+    }
+
+    public function paramTest($p1,$p2=22){
+        var_dump($p1);
+        var_dump($p2);
 
     }
 

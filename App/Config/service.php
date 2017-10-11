@@ -21,7 +21,7 @@ $di->setShared("singletonWriter", function () use ($di, $config) {
 
 //setShared 设置共享实例
 $di->setShared("logger", function () use ($di) {
-    $logger = Logger::getInstance($di);
+    $logger = Log::getInstance($di);
     return $logger;
 });
 

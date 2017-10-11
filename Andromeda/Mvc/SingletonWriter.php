@@ -11,7 +11,11 @@ namespace Framework\Mvc;
 
 use Framework\App;
 
-
+/**
+ * 单例模式使用的类实例类
+ * Class SingletonWriter
+ * @package Framework\Mvc
+ */
 class SingletonWriter extends App
 {
     private static $singletonWriter;
