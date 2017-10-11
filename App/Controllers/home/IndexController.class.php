@@ -15,7 +15,7 @@
 
 use Framework\Mvc\Controller;
 
-class IndexController extends Controller
+class IndexController extends BaseController
 {
     public function index()
     {
@@ -42,9 +42,10 @@ class IndexController extends Controller
 
     }
 
-    public function paramTest($p1,$p2=22){
+    public function paramTest($p1,$p2=22,$p3){
         var_dump($p1);
         var_dump($p2);
+        var_dump($p3);
 
     }
 

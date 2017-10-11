@@ -6,3 +6,4 @@ This is a php framework,apply Di,Ioc
 
 
 2017-08-03 12:06:09 下一步实现获取action的参数,利用反射实现
+2017-10-11 11:26:54 实现获取action参数,以及必填非必填参数判断

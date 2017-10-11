@@ -154,12 +154,33 @@ class Andromeda extends \Framework\Di\Injectable
         //$param=self::getFucntionParameter('$controller->$action_name',self::$s_arr_query);
         //Log::write(json_encode(self::$s_arr_query));
         //call_user_func(array($controller_name,$action_name),['p1'=>"2222"],['p2'=>"11111"]);
-        $reflect=new \ReflectionMethod($controller_name,$action_name);
-        $reflect->invokeArgs($controller,self::$s_arr_query);
+        $reflect = new \ReflectionMethod($controller_name, $action_name);
+        //处理一下参数
+        $params=self::bindParams($reflect,self::$s_arr_query);
+
+        $reflect->invokeArgs($controller, $params);
 
     }
 
+    /**
+     * 绑定参数
+     * @param \ReflectionMethod| \ReflectionFunction $reflect
+     * @param array $vars
+     */
+    private static function bindParams($reflect, $vars = [])
+    {
+        $args = [];
+        //反射的方法存在参数
+        if ($reflect->getNumberOfParameters() > 0) {
+            //判断数组类型,数字数组时按顺序绑定参数
+            $params = $reflect->getParameters();
+            foreach ($params as $param) {
+                $args[] = self::getParamValue($param, $vars);
+            }
+        }
 
+        return $args;
+    }
 
 
     /**
@@ -205,6 +226,36 @@ class Andromeda extends \Framework\Di\Injectable
     public static function appShutdown()
     {
         //echo '****shutdown****';
+    }
+
+    /**
+     * 获取参数值,并判断是否必要参数没填
+     * @param \ReflectionParameter $param
+     * @param $vars
+     * @return array
+     */
+    private static function getParamValue($param, $vars)
+    {   //参数名字
+        $name = $param->getName();
+        //参数的类
+        $class = $param->getClass();
+
+        if ($class) {
+            //todo:参数是个类的情况
+            return null;
+        } else {
+            if (isset($vars[$name])) {
+                $result = $vars[$name];
+            } elseif ($param->isDefaultValueAvailable()) {
+                $result = $param->getDefaultValue();
+            } else {
+                throw new \InvalidArgumentException("method param is missing:" . $name);
+            }
+        }
+
+        return $result;
+
+
     }
 
 }

@@ -7,7 +7,7 @@
  * Time: 15:30
  */
 use Framework\Mvc\Controller;
-class ControllerBase extends Controller
+class BaseController extends Controller
 {
 
 }
