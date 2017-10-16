@@ -6,15 +6,14 @@
  * Time: 15:11
  */
 
-namespace Framework\Di;
+namespace Andromeda\Di;
 
 
 
 /**
  * Class Injectable
- * @property \Framework\Mvc\Writer $writer
- * @property \Andromeda\Logger\Logger $logger
- * @property \Framework\Mvc\SingletonWriter $singletonWriter
+ * @property \Andromeda\Mvc\Writer $writer
+ * @property \Andromeda\Mvc\SingletonWriter $singletonWriter
  */
 abstract class Injectable implements InjectionAwareInterface
 {

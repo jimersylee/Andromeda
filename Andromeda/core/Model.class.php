@@ -1,5 +1,5 @@
 <?php
-// framework/core/Model.class.php
+// Andromeda/core/Model.class.php
 //Base Model Class;
 class Model
 {

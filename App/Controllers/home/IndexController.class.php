@@ -13,7 +13,7 @@
  *
  */
 
-use Framework\Mvc\Controller;
+use Andromeda\Mvc\Controller;
 
 class IndexController extends BaseController
 {
@@ -43,6 +43,7 @@ class IndexController extends BaseController
     }
 
     public function paramTest($p1,$p2=22,$p3){
+        Log::write("eeeee");
         var_dump($p1);
         var_dump($p2);
         var_dump($p3);

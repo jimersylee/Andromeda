@@ -6,15 +6,15 @@
  * Time: 14:37
  */
 
-namespace Framework\Di\FactoryDefault;
+namespace Andromeda\Di\FactoryDefault;
 
-use Framework\Di;
+use Andromeda\Di;
 
 
 /**
  * 相当于服务容器
  * Class Factory
- * @package Framework\Di
+ * @package Andromeda\Di
  */
 class FactoryDefault extends Di
 {

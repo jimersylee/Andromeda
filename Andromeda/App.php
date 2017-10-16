@@ -5,9 +5,9 @@
  * Date: 2017/5/27
  * Time: 14:45
  */
-namespace Framework;
+namespace Andromeda;
 
-use Framework\Di\Injectable;
+use Andromeda\Di\Injectable;
 
 class App extends Injectable {
 

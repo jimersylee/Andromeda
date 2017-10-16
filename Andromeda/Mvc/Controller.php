@@ -6,10 +6,10 @@
  * Time: 15:24
  */
 
-namespace Framework\Mvc;
+namespace Andromeda\Mvc;
 
 
-use Framework\Di\Injectable;
+use Andromeda\Di\Injectable;
 
 abstract class Controller extends Injectable
 {

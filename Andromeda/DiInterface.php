@@ -6,7 +6,7 @@
  * Time: 15:13
  */
 
-namespace Framework;
+namespace Andromeda;
 
 
 interface DiInterface extends \ArrayAccess

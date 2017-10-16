@@ -7,9 +7,8 @@
  */
 
 //服务配置
-use Framework\Mvc\Writer;
-use Framework\Mvc\SingletonWriter;
-use Andromeda\Logger\Logger;
+use Andromeda\Mvc\Writer;
+use Andromeda\Mvc\SingletonWriter;
 
 $config = [];
 //闭包 use支持多多个参数,可以利用此特性传递多个参数

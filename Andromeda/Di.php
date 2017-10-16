@@ -6,12 +6,12 @@
  * Time: 15:49
  */
 
-namespace Framework;
+namespace Andromeda;
 
 /**
  * 依赖注入实现核心类
  * Class Di
- * @package Framework
+ * @package Andromeda
  */
 class Di implements DiInterface
 {

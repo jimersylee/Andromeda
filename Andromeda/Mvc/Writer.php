@@ -6,10 +6,10 @@
  * Time: 15:03
  */
 
-namespace Framework\Mvc;
+namespace Andromeda\Mvc;
 
 
-use Framework\App;
+use Andromeda\App;
 
 
 class Writer extends App

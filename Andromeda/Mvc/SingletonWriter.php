@@ -6,15 +6,15 @@
  * Time: 15:03
  */
 
-namespace Framework\Mvc;
+namespace Andromeda\Mvc;
 
 
-use Framework\App;
+use Andromeda\App;
 
 /**
  * 单例模式使用的类实例类
  * Class SingletonWriter
- * @package Framework\Mvc
+ * @package Andromeda\Mvc
  */
 class SingletonWriter extends App
 {

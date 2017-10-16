@@ -6,7 +6,7 @@
  * Time: 14:07
  */
 
-namespace Framework\Di;
+namespace Andromeda\Di;
 
 
 interface InjectionAwareInterface

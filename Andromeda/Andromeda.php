@@ -6,8 +6,9 @@
  * Time: 12:42
  */
 
+use Andromeda\Request;
 
-class Andromeda extends \Framework\Di\Injectable
+class Andromeda extends \Andromeda\Di\Injectable
 {
     public static $s_arr_query;
 
@@ -166,16 +167,22 @@ class Andromeda extends \Framework\Di\Injectable
      * 绑定参数
      * @param \ReflectionMethod| \ReflectionFunction $reflect
      * @param array $vars
+     * @return array 参数
      */
     private static function bindParams($reflect, $vars = [])
     {
+        // 处理post参数
+        $postParam=Request::instance()->param();
+        Log::write("post:".json_encode($postParam));
+
+        //处理get参数
         $args = [];
         //反射的方法存在参数
         if ($reflect->getNumberOfParameters() > 0) {
             //判断数组类型,数字数组时按顺序绑定参数
             $params = $reflect->getParameters();
             foreach ($params as $param) {
-                $args[] = self::getParamValue($param, $vars);
+                $args[] = self::getParamValue($param, $postParam);
             }
         }
 

@@ -6,7 +6,7 @@
  * Time: 14:24
  */
 
-use Framework\Di\FactoryDefault\FactoryDefault;
+use Andromeda\Di\FactoryDefault\FactoryDefault;
 
 
 include "./vendor/autoload.php";
@@ -15,20 +15,18 @@ $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
 $whoops->register();
 
 
-
-
-
-
-
 //分隔符 window与linux不同
-define("DS",DIRECTORY_SEPARATOR);
+define("DS", DIRECTORY_SEPARATOR);
 
-define('ROOT', __DIR__.DS);
+define('ROOT', __DIR__ . DS);
 
 //echo BASE_PATH;
 
-define('APP_PATH', ROOT . 'App'.DS);//定义app目录
+define('APP_PATH', ROOT . 'App' . DS);//定义app目录
 //echo APP_PATH;
+
+// 环境常量
+define('IS_CLI', PHP_SAPI == 'cli' ? true : false);
 
 
 include ROOT . "/Andromeda/DiInterface.php";
@@ -39,16 +37,16 @@ include ROOT . "/Andromeda/Di/Injectable.php";
 
 include ROOT . "/Andromeda/App.php";
 include ROOT . "/Andromeda/Andromeda.php";
+include ROOT . "/Andromeda/Request.php";
+include ROOT . "/Andromeda/Exception.php";
 
 
 //容器
 $di = new FactoryDefault();
 
 
-
-
 require_once "Andromeda/Andromeda.php";
-include ROOT ."/Andromeda/Mvc/Controller.php";
+include ROOT . "/Andromeda/Mvc/Controller.php";
 
 
 //载入路由配置 handle routes
@@ -62,7 +60,7 @@ include APP_PATH . "Config/service.php";
 include APP_PATH . "Config/loader.php";
 
 //应用(组件)
-$app = new \Framework\App($di);
+$app = new \Andromeda\App($di);
 
 Andromeda::run($di);
 
