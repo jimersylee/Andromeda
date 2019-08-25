@@ -6,12 +6,15 @@
  * Time: 14:24
  */
 
+use Andromeda\App;
 use Andromeda\Di\FactoryDefault\FactoryDefault;
+use Whoops\Handler\PrettyPageHandler;
+use Whoops\Run;
 
 
 include "./vendor/autoload.php";
-$whoops = new \Whoops\Run();
-$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
+$whoops = new Run();
+$whoops->pushHandler(new PrettyPageHandler());
 $whoops->register();
 
 
@@ -60,7 +63,7 @@ include APP_PATH . "Config/service.php";
 include APP_PATH . "Config/loader.php";
 
 //应用(组件)
-$app = new \Andromeda\App($di);
+$app = new App($di);
 
 Andromeda::run($di);
 

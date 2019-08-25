@@ -6,7 +6,7 @@ class Controller{
 	protected $view;
 	protected $di;
 	public function __construct($di){
-		$this->loader=new bak();
+		$this->loader=new Loader();
 		$this->view=new View();
 		$this->di=$di;
 		

@@ -58,6 +58,8 @@ class Andromeda extends \Andromeda\Di\Injectable
         require CORE_PATH . "View.class.php";
         require CORE_PATH . "Util.class.php";
         require CORE_PATH . "Log.class.php";
+        require CORE_PATH . "TemplateEngine/Compile.class.php";
+        require CORE_PATH . "TemplateEngine/Template.class.php";
 
 
         $url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];//todo 支持https

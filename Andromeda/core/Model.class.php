@@ -3,6 +3,9 @@
 //Base Model Class;
 class Model
 {
+    /**
+     * @var Mysql
+     */
     protected $db;
     protected $table;
     protected $fields = array();//
@@ -16,7 +19,8 @@ class Model
         $dbConfig['port'] = $GLOBALS['config']['DB_PORT'];
         $dbConfig['charset'] = $GLOBALS['config']['DB_CHARSET'];
 
-        $this->db = new Mysql($dbConfig);
+        $this->db = Mysql::getInstance($dbConfig);
+
         $this->table = $GLOBALS['config']['DB_PREFIX'] . $table;
         $this->getFields();
 
@@ -26,7 +30,7 @@ class Model
     private function getFields()
     {
         $sql = "DESC " . $this->table;
-        $result = $this->db->getAll($sql);
+        $result = $this->db->query($sql);
         foreach ($result as $v) {
             $this->fields[] = $v['Field'];
             if ($v['Key'] == 'PRI') {

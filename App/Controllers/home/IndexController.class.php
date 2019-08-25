@@ -12,9 +12,6 @@
  * Class IndexController
  *
  */
-
-use Andromeda\Mvc\Controller;
-
 class IndexController extends BaseController
 {
     public function index()
@@ -42,7 +39,14 @@ class IndexController extends BaseController
 
     }
 
-    public function paramTest($p1,$p2=22,$p3){
+    /**
+     * index.php?p=home&c=Index&a=paramTest&p1=2&p3=3
+     * @param $p1
+     * @param int $p2
+     * @param $p3
+     */
+    public function paramTest($p1, $p2 = 22, $p3)
+    {
         Log::write("eeeee");
         var_dump($p1);
         var_dump($p2);
@@ -50,12 +54,13 @@ class IndexController extends BaseController
 
     }
 
-    public function testTpl(){
-        $tpl=new Template();
+    public function testTpl()
+    {
+        $tpl = new Template();
         $tpl->assign('data', 'hello world');
         $tpl->assign('person', 'htGod');
         $tpl->assign('data1', 3);
-        $arr = array(1,2,3,4,'5',6);
+        $arr = array(1, 2, 3, 4, '5', 6);
         $tpl->assign('b', $arr);
         $tpl->display('member');
     }

@@ -6,7 +6,7 @@ class UserModel extends Model{
      */
     public function getUsers(){
 		$sql="select * from {$this->table}";
-		$user=$this->db->getAll($sql);
+		$user=$this->db->query($sql);
 		return $user;
 	}
 }
