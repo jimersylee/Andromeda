@@ -36,7 +36,7 @@ class Mysql{
 
        
 
-        $this->conn = @mysqli_connect($host,$user,$password,$db_name,$port) or die('Database connection error');
+        $this->conn = mysqli_connect($host,$user,$password,$db_name,$port) or die('Database connection error');
         $this->setChar($charset);
 
     }

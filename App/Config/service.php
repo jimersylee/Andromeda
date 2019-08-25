@@ -7,6 +7,7 @@
  */
 
 //服务配置
+
 use Andromeda\Mvc\Writer;
 use Andromeda\Mvc\SingletonWriter;
 
@@ -20,7 +21,7 @@ $di->setShared("singletonWriter", function () use ($di, $config) {
 
 //setShared 设置共享实例
 $di->setShared("logger", function () use ($di) {
-    $logger = Log::getInstance($di);
+    $logger = new Log();
     return $logger;
 });
 
@@ -30,18 +31,3 @@ $di->set("writer", function () use ($di, $config) {
     return $write;
 });
 
-
-
-
-
-
-
-
-
-
-
-
-/*$di->set("writer",function () use ($di){
-
-    return null;
-});*/
