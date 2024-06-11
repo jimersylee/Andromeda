@@ -10,11 +10,7 @@ namespace Andromeda\Di;
 
 
 
-/**
- * Class Injectable
- * @property \Andromeda\Mvc\Writer $writer
- * @property \Andromeda\Mvc\SingletonWriter $singletonWriter
- */
+
 abstract class Injectable implements InjectionAwareInterface
 {
 

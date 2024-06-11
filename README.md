@@ -1,30 +1,41 @@
-# Andromeda
-学习用php实现DI的web应用框架
-This is a php framework,apply Di,Ioc
+# Summary 
 
-使用方法:部署到php环境中,访问 http://127.0.0.1/Andromeda/index.php?p=Index&c=Index&a=index
+Andromeda is a php framework,apply Di,Ioc
+
+# Quick start
+
+```shell
+cd Andromeda
+composer install
+# start server
+php -S localhost:8000
+# curl or using browser
+http://localhost:8000/index.php?p=home&c=index&a=index
+http://localhost:8000/index.php?p=home&c=index&a=paramTest&p1=1&p3=2
+```
 
 
-2017-08-03 12:06:09 下一步实现获取action的参数,利用反射实现
+# Todo
 
-2017-10-11 11:26:54 实现获取action参数,以及必填非必填参数判断
+## Cache driver
+- Redis
+- Memcached
+- File 
 
-2017-10-11 11:30:29 准备实现获取post参数
-
-2017-10-16 15:38:30 实现获取post与get参数结合
-
-缓存驱动
-- redis
-- memcached
-- file 
-
-数据库驱动
+## Database driver
 - MySQL
 
+## Log driver
+- File
+- Elastic search
 
-日志驱动
-- 文件
-- Elastic
+
+# Dev log
+- 2024-06-11:升级依赖包;更新README
+- 2017-10-16:实现获取post与get参数结合
+- 2017-10-11:准备实现获取post参数
+- 2017-10-11:实现获取action参数,以及必填非必填参数判断
+- 2017-08-03:下一步实现获取action的参数,利用反射实现
 
 
 

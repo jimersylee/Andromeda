@@ -1,12 +1,12 @@
 {
-  "name":"php-di-ioc",
+  "name":"jimersylee/andromeda",
   "description":"PHP framework",
-  "type":"Framework",
+  "type":"framework",
   "keywords":[
     "PHP","Framework","PHP Framework"
   ],
   "require":{
-    "php":">=5.6.0",
-    "filp/whoops":"*"
+    "php":">=7.0",
+    "filp/whoops": "2.*"
   }
 }
