@@ -26,25 +26,24 @@ class Di implements DiInterface
     public $_sharedInstances;
 
 
-
-
-
-    public function offsetExists($offset)
+    public function offsetExists($offset):bool
     {
         // TODO: Implement offsetExists() method.
+        return false;
     }
 
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         // TODO: Implement offsetGet() method.
+        return null;
     }
 
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value):void
     {
         // TODO: Implement offsetSet() method.
     }
 
-    public function offsetUnset($offset)
+    public function offsetUnset($offset):void
     {
         // TODO: Implement offsetUnset() method.
     }

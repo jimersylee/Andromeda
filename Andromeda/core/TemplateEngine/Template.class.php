@@ -43,7 +43,6 @@ class Template
             }
         }
 
-        include('Compile.class.php');
     }
 
     public function getPath()

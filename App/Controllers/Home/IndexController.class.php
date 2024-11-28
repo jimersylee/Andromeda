@@ -28,6 +28,14 @@ class IndexController extends BaseController
 
     }
 
+    public function var()
+    {
+        Log::ERR("访问var");
+        $this->assign('var', "foobar");
+        $this->display('var');
+
+    }
+
     public function getUsers()
     {
         Log::ERR("访问getUser");
@@ -45,7 +53,7 @@ class IndexController extends BaseController
      * @param int $p2
      * @param $p3
      */
-    public function paramTest($p1, $p2 = 22, $p3)
+    public function paramTest($p1, $p2, $p3=22)
     {
         Log::write("eeeee");
         var_dump($p1);
@@ -62,8 +70,9 @@ class IndexController extends BaseController
         $tpl->assign('data1', 3);
         $arr = array(1, 2, 3, 4, '5', 6);
         $tpl->assign('b', $arr);
-        $tpl->display('member');
+        $tpl->display('home/member');
     }
+
 
 
 }

@@ -6,7 +6,7 @@
     "PHP","Framework","PHP Framework"
   ],
   "require":{
-    "php":">=7.0",
+    "php":">=8.0.0",
     "filp/whoops": "2.*"
   }
 }
