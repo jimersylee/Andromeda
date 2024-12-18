@@ -1,6 +1,6 @@
 # Summary 
 
-Andromeda is a php framework,apply Di,Ioc
+Andromeda is a php framework,apply Di,Ioc.
 
 # License
 [MIT](LICENSE)
