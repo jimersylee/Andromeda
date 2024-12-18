@@ -2,6 +2,9 @@
 
 Andromeda is a php framework,apply Di,Ioc
 
+# License
+[MIT](LICENSE)
+
 # Quick start
 
 ```shell
